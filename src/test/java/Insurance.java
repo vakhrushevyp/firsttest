@@ -14,8 +14,7 @@ import static org.junit.Assert.*;
 
 
 
-public class InsuranceTest {
-    WebDriver driver;
+public class Insurance extends BaseTest {
 
 
     @Before

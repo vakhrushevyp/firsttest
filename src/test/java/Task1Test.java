@@ -4,33 +4,16 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.assertEquals;
 
-public class Task1 {
-
-
-    WebDriver driver;
-
-    @Before
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "drv/chromedriver.exe");
-        driver = new ChromeDriver();
-        String baseUrl = "https://www.sberbank.ru/";
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get(baseUrl);
-
-    }
+public class Task1Test extends BaseTest {
 
     @Test
     public void testSberbank() {
+        driver.get(baseUrl);
         driver.findElement(By.xpath("//a[@aria-label='Страхование']")).click();
         driver.findElement(By.xpath("//a[contains(text(),'Путешествия')]")).click();
         Wait<WebDriver> wait = new WebDriverWait(driver, 30,1000);
@@ -51,7 +34,6 @@ public class Task1 {
 
         WebElement title4 = driver.findElement(By.xpath("//div[@class='col-4 step-element active']"));
         wait.until(ExpectedConditions.visibilityOf(title4));
-
 
         fillField(By.id("surname_vzr_ins_0"), "Ivanov");
         fillField(By.id("name_vzr_ins_0"), "Ivan");
@@ -98,15 +80,4 @@ public class Task1 {
                 driver.findElement(By.xpath("//span[contains(text(),'Поле не заполнено.')]")).getText());
 
     }
-
-    public void fillField(By locator, String value) {
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(value);
-    }
-
-    @After
-    public void afterTest(){
-        driver.quit();
-    }
-
 }
