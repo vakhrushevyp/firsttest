@@ -35,7 +35,7 @@ public class BaseTest {
 
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-
+        driver.get(baseUrl);
     }
     public void fillField(By locator, String value) {
         driver.findElement(locator).clear();

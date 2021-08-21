@@ -1,5 +1,6 @@
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +15,11 @@ import static org.junit.Assert.*;
 
 
 
-public class Insurance extends BaseTest {
+public class InsuranceTest extends BaseTest {
 
 
     @Before
+    @Ignore
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "drv/chromedriver.exe");
         driver = new ChromeDriver();
@@ -29,6 +31,7 @@ public class Insurance extends BaseTest {
     }
 
     @Test
+    @Ignore
     public void testInsurance(){
     driver.findElement(By.xpath("//a[@class='hidden-xs'][contains(text(),'Меню')]")).click();
     driver.findElement(By.xpath("//a[@class='hidden-xs'][contains(text(),'Здоровье')]")).click();
@@ -80,6 +83,7 @@ public class Insurance extends BaseTest {
 
 
     @After
+    @Ignore
     public void afterTest(){
         driver.quit();
     }
