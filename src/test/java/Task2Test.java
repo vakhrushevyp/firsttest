@@ -1,3 +1,4 @@
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,12 +8,14 @@ import pages.CheckoutPage;
 import pages.FormingPage;
 import pages.MainPage;
 import pages.TravelPage;
+import steps.BaseSteps;
 
 import static org.junit.Assert.assertEquals;
 
-public class RefactoringTask1Test extends BaseTest {
+public class Task2Test extends BaseSteps {
 
     @Test
+    @Ignore
     public void newTestSberbank() {
 
         MainPage mainPage = new MainPage(driver);

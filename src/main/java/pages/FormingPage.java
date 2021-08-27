@@ -119,7 +119,37 @@ public class FormingPage {
             default:
                 throw new AssertionError("Поле " + fieldName + "не объявлено на странице");
 
+        }
+
+    }
+
+    public String  getFillField(String fieldName) {
+        switch (fieldName) {
+            case "Фамилия латиницей":
+                return surname_vzr_ins_0.getAttribute("value");
+            case "Имя латиницей":
+                return name_vzr_ins_0.getAttribute("value");
+            case "Дата рождения загран":
+                return birthDate_vzr_ins_0.getAttribute("value");
+            case "Фамилия":
+                return person_lastName.getAttribute("value");
+            case "Имя":
+                return person_firstName.getAttribute("value");
+            case "Отчество":
+                return person_middleName.getAttribute("value");
+            case "Дата рождения":
+                return person_birthDate.getAttribute("value");
+            case "Паспорт серия":
+                return passportSeries.getAttribute("value");
+            case "Паспорт номер":
+                return passportNumber.getAttribute("value");
+            case "Паспорт дата":
+                return documentDate.getAttribute("value");
+            case "Паспорт выдан":
+                return documentIssue.getAttribute("value");
 
         }
+        throw new AssertionError("Поле не объявлено на странице");
+
     }
 }

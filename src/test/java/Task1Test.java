@@ -1,5 +1,3 @@
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -8,10 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import steps.BaseSteps;
 
 import static org.junit.Assert.assertEquals;
 
-public class Task1Test extends BaseTest {
+public class Task1Test extends BaseSteps {
 
     @Test
     @Ignore
