@@ -28,7 +28,9 @@ public class FormingSteps extends BaseSteps {
 
     @Step("поля заполнены верно")
     public void checkFillFields(HashMap<String, String> fields) {
-        fields.forEach((k, v)-> checkFillField(k,v));
+        fields.forEach(
+
+                (k, v)-> checkFillField(k,v));
     }
     @Step("Нажатие кнопки Продолжить")
     public void stepProceedButton(){

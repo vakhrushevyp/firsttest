@@ -1,8 +1,9 @@
 package steps;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import io.qameta.allure.Attachment;
-import org.junit.After;
-import org.junit.Before;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

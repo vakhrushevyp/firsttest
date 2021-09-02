@@ -1,4 +1,5 @@
-import io.qameta.allure.junit4.DisplayName;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import steps.*;
 
@@ -7,8 +8,9 @@ import java.util.HashMap;
 
 public class Task3AllureTest extends BaseSteps {
 
-    @DisplayName("Страхование")
+
     @Test
+    @Ignore
     public void textInsurance() {
         MainSteps mainSteps = new MainSteps();
         TravelSteps travelSteps = new TravelSteps();
