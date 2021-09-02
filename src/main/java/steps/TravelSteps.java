@@ -3,11 +3,11 @@ package steps;
 import pages.TravelPage;
 import io.qameta.allure.Step;
 
-public class TravelSteps extends BaseSteps {
+public class TravelSteps  {
 
     @Step ("выполнено нажатие на кнопку - Оформить онлайн")
     public void stepCheckoutOnlineButton () {
-        new TravelPage(driver).checkoutOnline.click();
+        new TravelPage().checkoutOnline.click();
 
     }
 

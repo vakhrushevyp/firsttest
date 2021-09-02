@@ -1,16 +1,16 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import steps.BaseSteps;
 
 public class FormingPage {
 
-    WebDriver driver;
+
 
     @FindBy(xpath = "//div[@class='col-4 step-element active']")
     WebElement title2CheckoutPage;
@@ -57,13 +57,11 @@ public class FormingPage {
     @FindBy(xpath = "//body//app//fieldset[4]")
     public WebElement contacts;
 
-
-    public FormingPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        (new WebDriverWait(driver, 30, 1000))
-                .until(ExpectedConditions.visibilityOf(title2CheckoutPage));
-        this.driver = driver;
+    public FormingPage(){
+        PageFactory.initElements(BaseSteps.getDriver(), this);
+        new WebDriverWait(BaseSteps.getDriver(), 30, 1000).until(ExpectedConditions.visibilityOf(title2CheckoutPage));
     }
+
 
     public void fillField(WebElement element, String value) {
         element.click();
@@ -71,9 +69,6 @@ public class FormingPage {
         element.sendKeys(value);
     }
 
-    public void selectCitizenship(String selectCitizenshipItem) {
-        citizenship.findElement(By.xpath(".//label[contains(text(),'" + selectCitizenshipItem + "')]")).click();
-    }
 
     public String contactsAssert(String contactsAssertText) {
         return contacts.findElement(By.xpath("//span[contains(text(),'" + contactsAssertText + "')]")).getText();

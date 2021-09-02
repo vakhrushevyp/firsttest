@@ -7,16 +7,16 @@ import java.util.HashMap;
 
 import static org.junit.Assert.assertTrue;
 
-public class FormingSteps extends BaseSteps {
+public class FormingSteps {
 
     @Step("поле {0} заполняется значением {1}")
     public void stepFillField(String field, String value){
-        new FormingPage(driver).fillField(field, value);
+        new FormingPage().fillField(field, value);
     }
 
     @Step("поле {0} заполнено значением {1}")
     public void checkFillField(String field, String value){
-        String actual = new FormingPage(driver).getFillField(field);
+        String actual = new FormingPage().getFillField(field);
         assertTrue(String.format("Значение поля [%s] равно [%s]. Ожидалось - [%s]", field, actual, value),
                 actual.equals(value));
     }
@@ -34,12 +34,12 @@ public class FormingSteps extends BaseSteps {
     }
     @Step("Нажатие кнопки Продолжить")
     public void stepProceedButton(){
-        new FormingPage(driver).proceed.click();
+        new FormingPage().proceed.click();
     }
 
     @Step("Отображение ошибки в контактных данных")
     public void stepContactsAssert (){
-        new FormingPage(driver).contactsAssert("Поле не заполнено.");
+        new FormingPage().contactsAssert("Поле не заполнено.");
     }
 
 }

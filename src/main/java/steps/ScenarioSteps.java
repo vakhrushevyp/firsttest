@@ -1,9 +1,8 @@
 package steps;
 
-import cucumber.api.DataTable;
-import cucumber.api.java.en.When;
-import io.qameta.allure.Step;
-import pages.CheckoutPage;
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.When;
 
 public class ScenarioSteps {
 
@@ -47,10 +46,10 @@ public class ScenarioSteps {
         checkoutSteps.stepCheckoutButton();
     }
 
-    @When("заполняются поля:")
+    @When("^заполняются поля:$")
     public void stepFillFields(DataTable fields) {
-        fields.asMap(String.class, String.class).forEach(
-                (k, v)-> formingSteps.stepFillField(k,v));
+        fields.<String,String>asMap(String.class, String.class)
+                .forEach((key, value)-> formingSteps.stepFillField(key,value));
 
     }
 

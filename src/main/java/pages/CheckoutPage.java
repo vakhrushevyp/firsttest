@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import steps.BaseSteps;
 
 public class CheckoutPage {
 
@@ -27,11 +28,10 @@ public class CheckoutPage {
     @FindBy(xpath = "//button[contains(text(),'Оформить')]")
     public WebElement CheckoutBtn;
 
-    public CheckoutPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        (new WebDriverWait(driver, 30, 1000))
+    public CheckoutPage() {
+        PageFactory.initElements(BaseSteps.getDriver(), this);
+        new WebDriverWait(BaseSteps.getDriver(), 30, 1000)
                 .until(ExpectedConditions.visibilityOf(titleCheckoutPage));
-        this.driver = driver;
     }
 
     public void selectRegion(String regionSelectItem) {
