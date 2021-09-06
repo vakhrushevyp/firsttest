@@ -44,7 +44,7 @@ public class Task3AllureTest extends BaseSteps {
 
         formingSteps.checkFillFields(testData);
         formingSteps.stepProceedButton();
-        formingSteps.stepContactsAssert();
+
 
     }
 

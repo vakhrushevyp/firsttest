@@ -53,5 +53,16 @@ public class ScenarioSteps {
 
     }
 
+    @When("^выполнено нажатие кнопки Продолжить$")
+    public void stepProceedButton () {
+        formingSteps.stepProceedButton();
+    }
+
+    @When("^ошибки в контактных данных - \"(.*)\"$")
+    public void stepContactsAssert (String contactsAssertText ) {
+        formingSteps.stepContactsAssert(contactsAssertText);
+
+
+    }
 
 }

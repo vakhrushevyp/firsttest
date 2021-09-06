@@ -37,9 +37,12 @@ public class FormingSteps {
         new FormingPage().proceed.click();
     }
 
+
     @Step("Отображение ошибки в контактных данных")
-    public void stepContactsAssert (){
-        new FormingPage().contactsAssert("Поле не заполнено.");
+    public void stepContactsAssert (String contactsAssertText ){
+        new FormingPage().contactsAssert(contactsAssertText);
     }
+
+
 
 }
