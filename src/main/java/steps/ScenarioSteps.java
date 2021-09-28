@@ -2,7 +2,12 @@ package steps;
 
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.FormingPage;
+import static org.junit.Assert.assertTrue;
+
+import java.util.HashMap;
 
 public class ScenarioSteps {
 
@@ -53,10 +58,18 @@ public class ScenarioSteps {
 
     }
 
+    @Then("^значения полей равны:$")
+    public void checkFillForm(DataTable fields){
+        fields.<String,String>asMap(String.class, String.class)
+                .forEach((field, value) -> formingSteps.checkFillField(field, value));
+    }
+
+
     @When("^выполнено нажатие кнопки Продолжить$")
     public void stepProceedButton () {
         formingSteps.stepProceedButton();
     }
+
 
     @When("^ошибки в контактных данных - \"(.*)\"$")
     public void stepContactsAssert (String contactsAssertText ) {
